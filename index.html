@@ -2,31 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Network Speed Test</title>
+  <title>System Security Check</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-  <h1>📡 Network Speed Test</h1>
+<div class="app">
+  <h1>🔐 System Security Check</h1>
 
-  <div class="speedometer">
-    <div class="needle" id="needle"></div>
-    <div class="center"></div>
+  <ul class="list">
+    <li>HTTPS Secure: <span id="https">Checking...</span></li>
+    <li>Internet Status: <span id="online">Checking...</span></li>
+    <li>Connection Type: <span id="connection">Checking...</span></li>
+    <li>Cookies Enabled: <span id="cookies">Checking...</span></li>
+    <li>JavaScript Enabled: <span class="ok">YES</span></li>
+    <li>VPN / Proxy: <span id="vpn">Checking...</span></li>
+  </ul>
+
+  <div class="score">
+    <h2>Security Score</h2>
+    <div id="score">0%</div>
   </div>
 
-  <h2><span id="speed">0</span> Mbps</h2>
-
-  <div class="info">
-    <p>Ping: <span id="ping">--</span> ms</p>
-    <p>Download: <span id="download">--</span> Mbps</p>
-    <p>Upload: <span id="upload">--</span> Mbps</p>
-  </div>
-
-  <button onclick="startTest()">Start Speed Test</button>
+  <button onclick="checkSecurity()">Run Security Scan</button>
 </div>
 
 <script src="script.js"></script>
 </body>
-                 </html>
+  </html>
