@@ -1,27 +1,59 @@
-const needle = document.getElementById("needle");
-const speedText = document.getElementById("speed");
-const pingText = document.getElementById("ping");
-const downloadText = document.getElementById("download");
-const uploadText = document.getElementById("upload");
-
-function startTest() {
-  let speed = 0;
-  let maxSpeed = Math.floor(Math.random() * 120) + 20;
-
-  pingText.textContent = Math.floor(Math.random() * 50) + 10;
-
-  const interval = setInterval(() => {
-    speed += 2;
-    if (speed >= maxSpeed) {
-      clearInterval(interval);
-      downloadText.textContent = maxSpeed;
-      uploadText.textContent = Math.floor(maxSpeed / 2);
-    }
-
-    speedText.textContent = speed;
-
-    // rotate needle (-90deg to +90deg)
-    let rotation = (speed / 150) * 180 - 90;
-    needle.style.transform = `rotate(${rotation}deg)`;
-  }, 50);
+body {
+  margin: 0;
+  background: #020617;
+  color: white;
+  font-family: Arial, sans-serif;
 }
+
+.app {
+  max-width: 420px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  background: #1e293b;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.ok {
+  color: #22c55e;
+}
+
+.warn {
+  color: #facc15;
+}
+
+.bad {
+  color: #ef4444;
+}
+
+.score {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#score {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  background: #38bdf8;
+  border: none;
+  border-radius: 10px;
+  }
