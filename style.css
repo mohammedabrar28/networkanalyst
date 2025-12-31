@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  background: #020617;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+
+.speedometer {
+  position: relative;
+  width: 250px;
+  height: 125px;
+  margin: 30px auto;
+  border-top-left-radius: 250px;
+  border-top-right-radius: 250px;
+  background: #1e293b;
+  overflow: hidden;
+}
+
+.needle {
+  position: absolute;
+  width: 4px;
+  height: 110px;
+  background: red;
+  bottom: 0;
+  left: 50%;
+  transform-origin: bottom;
+  transform: rotate(-90deg);
+  transition: transform 0.1s linear;
+}
+
+.center {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: white;
+  border-radius: 50%;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  background: #38bdf8;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:active {
+  background: #0ea5e9;
+}
+
+.info p {
+  margin: 5px;
+  }
