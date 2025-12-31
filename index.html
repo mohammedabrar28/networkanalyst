@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Network Speed Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>📡 Network Speed Test</h1>
+
+  <div class="speedometer">
+    <div class="needle" id="needle"></div>
+    <div class="center"></div>
+  </div>
+
+  <h2><span id="speed">0</span> Mbps</h2>
+
+  <div class="info">
+    <p>Ping: <span id="ping">--</span> ms</p>
+    <p>Download: <span id="download">--</span> Mbps</p>
+    <p>Upload: <span id="upload">--</span> Mbps</p>
+  </div>
+
+  <button onclick="startTest()">Start Speed Test</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+                 </html>
