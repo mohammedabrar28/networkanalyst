@@ -1,59 +1,48 @@
-body {
-  margin: 0;
-  background: #020617;
-  color: white;
-  font-family: Arial, sans-serif;
-}
+function checkSecurity() {
+  let score = 0;
 
-.app {
-  max-width: 420px;
-  margin: auto;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-}
-
-.list {
-  list-style: none;
-  padding: 0;
-}
-
-.list li {
-  background: #1e293b;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-}
-
-.ok {
-  color: #22c55e;
-}
-
-.warn {
-  color: #facc15;
-}
-
-.bad {
-  color: #ef4444;
-}
-
-.score {
-  text-align: center;
-  margin: 20px 0;
-}
-
-#score {
-  font-size: 32px;
-  font-weight: bold;
-}
-
-button {
-  width: 100%;
-  padding: 15px;
-  font-size: 16px;
-  background: #38bdf8;
-  border: none;
-  border-radius: 10px;
+  // HTTPS check
+  if (location.protocol === "https:") {
+    https.textContent = "YES";
+    https.className = "ok";
+    score += 20;
+  } else {
+    https.textContent = "NO";
+    https.className = "bad";
   }
+
+  // Online check
+  if (navigator.onLine) {
+    online.textContent = "ONLINE";
+    online.className = "ok";
+    score += 20;
+  } else {
+    online.textContent = "OFFLINE";
+    online.className = "bad";
+  }
+
+  // Connection type
+  if (navigator.connection) {
+    connection.textContent = navigator.connection.effectiveType.toUpperCase();
+    score += 20;
+  } else {
+    connection.textContent = "UNKNOWN";
+  }
+
+  // Cookies
+  if (navigator.cookieEnabled) {
+    cookies.textContent = "ENABLED";
+    cookies.className = "ok";
+    score += 20;
+  } else {
+    cookies.textContent = "DISABLED";
+    cookies.className = "warn";
+  }
+
+  // VPN / Proxy (basic heuristic)
+  vpn.textContent = "UNKNOWN";
+  vpn.className = "warn";
+  score += 20;
+
+  document.getElementById("score").textContent = score + "%";
+    }
